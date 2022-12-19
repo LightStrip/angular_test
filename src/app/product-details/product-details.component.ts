@@ -22,5 +22,14 @@ export class ProductDetailsComponent implements OnInit {
       (product) => product.id === productIdFromRoute
     );
   }
-  constructor(private route: ActivatedRoute) {}
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
+
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 }
